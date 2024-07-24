@@ -1,0 +1,22 @@
+.movie-ui-container {
+    padding: 20px;
+  }
+  
+  .movie-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .movie-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .movie-item h2 {
+    margin: 0;
+  }
+  
+  .movie-item p {
+    margin: 5px 0;
+  }
+  
