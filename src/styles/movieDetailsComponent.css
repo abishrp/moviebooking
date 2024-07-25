@@ -1,0 +1,38 @@
+.movie-details {
+  padding: 20px;
+  text-align: center;
+}
+
+.movie-image {
+    max-width: 300px;
+  width: 100%;
+  height: 400px; /* Fixed height for images */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.release-year, .description, .ticket-price, .show-timings {
+  margin: 10px 0;
+}
+
+.ticket-price {
+  font-weight: bold;
+  color: #f00;
+}
+
+.show-timings {
+  color: #555;
+}
+
+.add-to-cart-button, .go-back-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.add-to-cart-button:hover, .go-back-button:hover {
+  background-color: #0056b3;
+}

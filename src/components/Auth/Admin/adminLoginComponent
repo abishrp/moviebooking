@@ -1,0 +1,61 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post('http://localhost:8000/admin/login', { email, password });
+    //   const { accessToken, refreshToken } = data;
+
+    //   // Store the access token in localStorage
+    //   localStorage.setItem('accessToken', accessToken);
+
+    //   // Store the refresh token in an HttpOnly cookie
+    //   document.cookie = `refreshToken=${refreshToken}; HttpOnly; Secure`;
+
+      // Redirect to the MovieUi page
+      navigate('/movieupdate');
+    } catch (error) {
+      console.error(error);
+      setMessage(error.message);
+    }
+  };
+
+  return (
+    <div className="auth-container">
+      <form onSubmit={handleSubmit} className="auth-form">
+        <h2>Login</h2>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="auth-input"
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="auth-input"
+        />
+        <button type="submit" className="auth-button">Login</button>
+        <div className="link-container">
+          <Link to="/register" className="auth-link">New user? Register here</Link>
+        </div>
+        {message && <p className="auth-message">{message}</p>}
+      
+      </form>
+    </div>
+  );
+};
+
+export default Login;
